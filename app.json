@@ -3,18 +3,16 @@
     "name": "valorant-app",
     "slug": "valorant-app",
     "version": "1.0.0",
-    
-      "web": {
-        "favicon": "./assets/favicon.png"
-      },
-    
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "https://valorant-api.com/assets/img/logo.png?v=1",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "https://valorant-api.com/assets/img/logo_transparent.png?v=1",
+      "resizeMode": "fill",
+      "backgroundColor": "#2e2e2e"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -27,6 +25,12 @@
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       }
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "37a4d4c3-7e70-4557-8ac0-930711cd3653"
+      }
+    },
+    "owner": "97revenge"
   }
 }
