@@ -1,16 +1,19 @@
 import { View, Text, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { InitialButton } from '../Buttons/InitialButton';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { fetchingWithFigma } from '../../features/figma';
 
 export default function ListSection() {
   const [loaded] = useFonts({
     'valorant-font': require('../../../assets/fonts/Valorant.ttf'),
   });
 
-  useEffect(() => {}, [loaded]);
+  useEffect(() => {
+    fetchingWithFigma();
+  }, [loaded]);
 
   return (
     <LinearGradient

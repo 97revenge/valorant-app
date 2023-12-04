@@ -9,6 +9,7 @@ import { useState, useEffect } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { RootStackParamList } from '../navigation';
 import { useNavigation } from '@react-navigation/native';
+import { AgentDetails } from '../features/zod/agentDetails';
 
 type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Overview'>;
 
@@ -76,7 +77,7 @@ export default function Agents() {
                           role: item.role.displayName,
                           description: item.role.description,
                         },
-                      })
+                      } satisfies AgentDetails)
                     }>
                     <View className="flex  justify-start flex-row gap-12 items-center">
                       <Text className="text-[55px] text-start font-valorant text-white">

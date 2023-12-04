@@ -4,7 +4,7 @@
     "slug": "valorant-app",
     "version": "1.0.0",
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "https://valorant-api.com/assets/img/logo_transparent.png?v=1"
     },
     "orientation": "portrait",
     "icon": "https://valorant-api.com/assets/img/logo.png?v=1",
@@ -14,9 +14,7 @@
       "resizeMode": "fill",
       "backgroundColor": "#2e2e2e"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
