@@ -3,9 +3,9 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 import { View, Text, Image, ScrollView, ImageBackground } from 'react-native';
 
-import { RootStackParamList } from '../navigation';
+import { RootStackParamList } from '../../navigation';
 
-type DetailsSreenRouteProp = RouteProp<RootStackParamList, 'Details'>;
+type DetailsSreenRouteProp = RouteProp<RootStackParamList, 'AgentDetails'>;
 
 const Component = () => {
   const router = useRoute<DetailsSreenRouteProp>();
@@ -18,7 +18,7 @@ const Component = () => {
             <View className="flex flex-col w-[150px] h-auto bg-[#ffffff46]  items-center rounded-lg pt-2 shadow-lg ">
               <View className=" ">
                 <Image
-                  source={{ uri: router.params.iconHabilities?.one }}
+                  source={{ uri: router.params?.iconHabilities?.one }}
                   className="h-[80px] w-[80px]"
                 />
               </View>
@@ -39,7 +39,7 @@ const Component = () => {
           <View className="flex flex-row items-center  mt-2 p-2  w-full justify-around  ">
             <View className="flex flex-col w-[150px] h-auto bg-[#ffffff46]  items-center rounded-lg pt-2 shadow-lg">
               <Image
-                source={{ uri: router.params.iconHabilities?.two }}
+                source={{ uri: router.params?.iconHabilities?.two }}
                 className="h-[80px] w-[80px]"
               />
               <Text className="p-2 text-xl w-full  font-valorant  text-center ">
@@ -59,7 +59,7 @@ const Component = () => {
           <View className="flex flex-row items-center  mt-2 p-2  w-full justify-around ">
             <View className="flex flex-col w-[150px] h-auto bg-[#ffffff46]  items-center rounded-lg pt-2 shadow-lg">
               <Image
-                source={{ uri: router.params.iconHabilities?.three }}
+                source={{ uri: router.params?.iconHabilities?.three }}
                 className="h-[80px] w-[80px]"
               />
               <Text className="p-2 text-xl w-full  font-valorant  text-center ">
@@ -79,7 +79,7 @@ const Component = () => {
           <View className="flex flex-row items-center  mt-2 p-2  w-full justify-around  ">
             <View className="flex flex-col w-[150px] h-auto bg-[#ffffff46]  items-center rounded-lg pt-2 shadow-lg">
               <Image
-                source={{ uri: router.params.iconHabilities?.ult }}
+                source={{ uri: router.params?.iconHabilities?.ult }}
                 className="h-[80px] w-[80px]"
               />
               <Text className="p-2 text-xl w-full  font-valorant  text-center ">
@@ -98,24 +98,24 @@ const Component = () => {
   );
 };
 
-export default function Details() {
+export const Details = (): React.ReactNode => {
   const router = useRoute<DetailsSreenRouteProp>();
 
   return (
     <LinearGradient
-      colors={[`#${router.params.colors?.one}`, `#${router.params.colors?.three}`]}
+      colors={[`#${router.params?.colors.one}`, `#${router.params?.colors?.three}`]}
       start={{ x: 0.1, y: 0.0 }}
       accessible
       className={styles.container}>
       <ScrollView>
         <ImageBackground
-          source={{ uri: router.params.background }}
+          source={{ uri: router.params?.background }}
           className="rounded-b-lg  bg-[#ffffff18]  border-t-8  border-t-[#ffffff3f]    shadow-2xl">
           <View className={styles.main}>
-            <Text className={styles.title}>"{router.params.description}"</Text>
+            <Text className={styles.title}>"{router.params?.description}"</Text>
             <Image
               source={{
-                uri: router.params.image,
+                uri: router.params?.image,
               }}
               className="w-full h-[960px] object-contain  rounded-lg "
             />
@@ -127,16 +127,16 @@ export default function Details() {
         <View className="rounded-b-lg   bg-[#ffffff18]  border-t-8  border-t-[#ffffff3f]   shadow-2xl  w-auto h-auto mt-5 py-2 ">
           <View className="p-2 bg-red-200   rounded-lg bg-[#ffffff18] flex items-center  ">
             <Text className="text-5xl p-2 font-valorant text-white shadow-lg bg-[#ffffff3f] text-center rounded-b-lg">
-              {router.params.role?.role}
+              {router.params?.role?.role}
             </Text>
-            <Text>{router.params.role?.description}</Text>
+            <Text>{router.params?.role?.description}</Text>
           </View>
           <Component />
         </View>
       </ScrollView>
     </LinearGradient>
   );
-}
+};
 
 const styles = {
   container: 'flex-1 p-6 ',

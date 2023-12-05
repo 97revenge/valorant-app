@@ -34,4 +34,4 @@ const agentDetails = z.object({
   }),
 });
 
-export type AgentDetails = z.infer<typeof agentDetails>;
+export type TypeAgent = z.infer<typeof agentDetails>;

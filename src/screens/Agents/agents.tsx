@@ -1,19 +1,21 @@
 import { LinearGradient } from 'expo-linear-gradient';
 import { View, Text, SafeAreaView, Image, ScrollView, ImageBackground } from 'react-native';
-import { styles } from '../components/Sections/ListSection';
+import { styles } from '../../components/Sections/ListSection';
 import axios from 'axios';
 
 import { StackNavigationProp } from '@react-navigation/stack';
 
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { RootStackParamList } from '../navigation';
+import { RootStackParamList } from '../../navigation';
 import { useNavigation } from '@react-navigation/native';
-import { AgentDetails } from '../features/zod/agentDetails';
+import { TypeAgent } from '../../features/zod/agentDetails';
+import { HabilitieIcon } from '../../components/Icons/HabilitieIcon';
+import CoreTitle from '../../components/Headers/CoreTitle';
 
 type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Overview'>;
 
-export default function Agents() {
+export const Agents = (): React.ReactNode => {
   const navigation = useNavigation<OverviewScreenNavigationProps>();
   const [load, setLoad] = useState<Array<any>>([]);
 
@@ -33,7 +35,7 @@ export default function Agents() {
       start={{ x: 0.1, y: 0.1 }}
       accessible
       className={styles.container}>
-      <Text className="font-valorant text-5xl text-center text-white py-5">Agents</Text>
+      <CoreTitle title="Agents" />
       <ScrollView>
         <View className=" w-full h-full rounded-lg p-8 bg-[#2022253f]    ">
           {load.map((item) => {
@@ -45,7 +47,7 @@ export default function Agents() {
                   <TouchableOpacity
                     className=" w-full p-5 rounded-lg "
                     onPress={() =>
-                      navigation.navigate('Details', {
+                      navigation.navigate('AgentDetails', {
                         name: item.displayName,
                         colors: {
                           one: item.backgroundGradientColors[0],
@@ -77,7 +79,7 @@ export default function Agents() {
                           role: item.role.displayName,
                           description: item.role.description,
                         },
-                      } satisfies AgentDetails)
+                      } satisfies TypeAgent)
                     }>
                     <View className="flex  justify-start flex-row gap-12 items-center">
                       <Text className="text-[55px] text-start font-valorant text-white">
@@ -97,30 +99,10 @@ export default function Agents() {
                         source={{ uri: item.displayIcon }}
                         className=" w-[70px] h-[70px] rounded-lg "
                       />
-                      <View className="bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg ">
-                        <Image
-                          source={{ uri: item.abilities[0].displayIcon }}
-                          className=" w-[45px] h-[45px] p-2 rounded-lg "
-                        />
-                      </View>
-                      <View className="bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg ">
-                        <Image
-                          source={{ uri: item.abilities[1].displayIcon }}
-                          className=" w-[45px] h-[45px] p-2 rounded-lg "
-                        />
-                      </View>
-                      <View className="bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg">
-                        <Image
-                          source={{ uri: item.abilities[2].displayIcon }}
-                          className=" w-[45px] h-[45px] p-2 rounded-lg "
-                        />
-                      </View>
-                      <View className="bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg ">
-                        <Image
-                          source={{ uri: item.abilities[3].displayIcon }}
-                          className=" w-[45px] h-[45px] p-2 rounded-lg "
-                        />
-                      </View>
+                      <HabilitieIcon item={item.abilities[0].displayIcon as string} />
+                      <HabilitieIcon item={item.abilities[1].displayIcon as string} />
+                      <HabilitieIcon item={item.abilities[2].displayIcon as string} />
+                      <HabilitieIcon item={item.abilities[3].displayIcon as string} />
                     </LinearGradient>
                   </TouchableOpacity>
                 </SafeAreaView>
@@ -131,4 +113,4 @@ export default function Agents() {
       </ScrollView>
     </LinearGradient>
   );
-}
+};
