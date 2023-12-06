@@ -2,8 +2,6 @@ import { W, wx } from 'windstitch';
 
 import { View, Image } from 'react-native';
 
-import { TypeAgent } from '../../features/zod/agentDetails';
-
 const concept = wx({
   variants: {
     concept: {
