@@ -18,11 +18,11 @@ import { useState, useEffect, useCallback } from 'react';
 import { HabilitieIcon } from '../../components/Icons/HabilitieIcon';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation';
+import { RateWeaponsSection } from '../../components/Sections/RateWeaponsSection';
 
 export default function Weapons() {
   const [load, setLoad] = useState<Array<any>>([]);
   type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Overview'>;
-  const navigation = useNavigation<OverviewScreenNavigationProps>();
 
   useEffect(() => {
     axios
@@ -47,31 +47,34 @@ export default function Weapons() {
             return (
               <SafeAreaView
                 key={item.uuid}
-                className="rounded-b-lg mb-5 bg-[#ffffff18]  border-t-8  border-t-[#ffffff3f]   shadow-lg ">
+                className=" rounded-b-lg mb-5 bg-[#ffffff18]  border-t-8  border-t-[#ffffff3f]   shadow-lg ">
                 <TouchableOpacity className="">
                   <View className="flex items-start my-4 w-full p-2">
-                    <Text className="font-valorant text-white text-4xl text-start">
+                    <Text className="font-valorant text-white text-5xl text-start ">
                       {item.displayName}
                     </Text>
-                    <View className="w-full h-auto  px-2">
+                    <LinearGradient
+                      colors={['transparent', '#ffffff31']}
+                      start={{ x: 1.0, y: 0.5 }}
+                      className="w-full h-auto  px-2 py-2  rounded-lg ">
                       <Image
                         source={{ uri: item.displayIcon }}
                         className="object-cover  w-[350px] h-[120px]     "
                       />
-                    </View>
+                    </LinearGradient>
                   </View>
                 </TouchableOpacity>
-                <ScrollView horizontal={true} className=" w-auto h-auto gap-2  py-2 mx-2 ">
-                  <View className="bg-red-200 rounded-lg px-5 ">
-                    <Text>Cost Rate: {item.shopData?.cost}</Text>
-                  </View>
-                  <View className="bg-red-200 rounded-lg px-5">
-                    <Text> {item.shopData?.category}</Text>
-                  </View>
-                  <View className="bg-red-200 rounded-lg px-5">
-                    <Text>Fire Rate: {item.weaponStats?.fireRate}</Text>
-                  </View>
-                </ScrollView>
+                <LinearGradient
+                  colors={['transparent', '#ffffff31']}
+                  start={{ x: 0.6, y: 0.3 }}
+                  className="flex  w-auto h-auto py-4 rounded-lg">
+                  <RateWeaponsSection
+                    cost={item.shopData?.cost}
+                    category={item.shopData?.category}
+                    fireRate={item.weaponStats?.fireRate}
+                    magazineSize={item.weaponStats?.magazineSize}
+                  />
+                </LinearGradient>
               </SafeAreaView>
             );
           })}
