@@ -33,10 +33,29 @@ export const Details = (): React.ReactNode => {
             Skins
           </Text>
           {skins.map((item) => {
+            const { chromas } = item;
+
             return (
-              <View className="flex flex-row py-12">
+              <View className=" p-2 mt-5 " key={item.uuid}>
                 <View className={styles.container}>
-                  <Text className="font-valorant text-white text-2xl px-2">{item.displayName}</Text>
+                  <Text className="flex flex-col font-valorant text-white text-2xl px-2">
+                    {item.displayName}
+                  </Text>
+                  <ScrollView horizontal={true} className="flex flex-row gap-16 py-12">
+                    <View className="  bg-[#ffffff0e] w-auto h-auto rounded-lg  items-start px-5 justify-center">
+                      <Image
+                        source={{ uri: item.displayIcon }}
+                        className=" object-fill w-[320px] h-[120px]  "
+                      />
+                    </View>
+                    <View className="  bg-[#ffffff0e] w-auto h-auto rounded-lg  items-center px-5 justify-center">
+                      <Image
+                        source={{ uri: chromas?.displayIcon }}
+                        className=" object-fill w-[320px] h-[120px]  "
+                      />
+                      <Text className="text-center font-valorant text-xl py-2">Chroma Version</Text>
+                    </View>
+                  </ScrollView>
                 </View>
               </View>
             );
@@ -48,7 +67,7 @@ export const Details = (): React.ReactNode => {
 };
 
 const styles = {
-  container: 'flex-1 p-6 ',
+  container: 'flex-1 p-6 bg-red-200 rounded-lg shadow-lg  bg-[#ffffff3f] ',
   main: ' max-w-[960]    ',
   title:
     'text-[64px]   font-valorant text-xl p-2 text-white text-center bg-[#ffffff36]  rounded-xl',

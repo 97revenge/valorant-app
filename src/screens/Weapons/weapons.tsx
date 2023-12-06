@@ -55,6 +55,7 @@ export default function Weapons() {
                     navigation.navigate('WeaponsDetails', {
                       name: item.displayName,
                       skins: item.skins,
+                      image: item.displayIcon,
                     });
                   }}>
                   <View className="flex items-start my-4 w-full p-2">
