@@ -15,7 +15,6 @@ import {
 } from 'react-native';
 import CoreTitle from '../../components/Headers/CoreTitle';
 import { useState, useEffect, useCallback } from 'react';
-import { HabilitieIcon } from '../../components/Icons/HabilitieIcon';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation';
 import { RateWeaponsSection } from '../../components/Sections/RateWeaponsSection';
@@ -23,6 +22,8 @@ import { RateWeaponsSection } from '../../components/Sections/RateWeaponsSection
 export default function Weapons() {
   const [load, setLoad] = useState<Array<any>>([]);
   type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Overview'>;
+
+  const navigation = useNavigation<OverviewScreenNavigationProps>();
 
   useEffect(() => {
     axios
@@ -47,8 +48,15 @@ export default function Weapons() {
             return (
               <SafeAreaView
                 key={item.uuid}
-                className=" rounded-b-lg mb-5 bg-[#ffffff18]  border-t-8  border-t-[#ffffff3f]   shadow-lg ">
-                <TouchableOpacity className="">
+                className=" rounded-b-lg mb-5   border-t-8  border-t-[#ffffff3f]   shadow-lg ">
+                <TouchableOpacity
+                  className="bg-[#ffffff18]"
+                  onPress={() => {
+                    navigation.navigate('WeaponsDetails', {
+                      name: item.displayName,
+                      skins: item.skins,
+                    });
+                  }}>
                   <View className="flex items-start my-4 w-full p-2">
                     <Text className="font-valorant text-white text-5xl text-start ">
                       {item.displayName}
@@ -59,7 +67,7 @@ export default function Weapons() {
                       className="w-full h-auto  px-2 py-2  rounded-lg ">
                       <Image
                         source={{ uri: item.displayIcon }}
-                        className="object-cover  w-[350px] h-[120px]     "
+                        className="object-cover  w-[350px] h-[120px]      "
                       />
                     </LinearGradient>
                   </View>

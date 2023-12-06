@@ -3,6 +3,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Overview from '../screens/overview';
 import { Details as AgentDetails } from '../screens/Agents/details';
+import { Details as WeaponsDetails } from '../screens/Weapons/details';
+
 import { Agents } from '../screens/Agents/agents';
 import Weapons from '../screens/Weapons/weapons';
 
@@ -12,6 +14,7 @@ export type RootStackParamList = {
   Agents: undefined;
   AgentDetails: Agent;
   Weapons: undefined;
+  WeaponsDetails: any;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -54,6 +57,11 @@ export default function RootStack() {
               backgroundColor: '#c54653',
             },
           }}
+        />
+        <Stack.Screen
+          name="WeaponsDetails"
+          component={WeaponsDetails}
+          options={{ headerShown: false }}
         />
       </Stack.Navigator>
     </NavigationContainer>
