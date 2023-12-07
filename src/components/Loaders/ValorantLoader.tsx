@@ -21,7 +21,7 @@ namespace Styles {
     Image: T;
     Text: T;
   };
-  export const styles = (): object => {
+  export const styles = (): Concept<W.Infer<typeof concept>> => {
     return {
       SafeAreaView: concept({
         primary: 'SafeAreaView',
@@ -35,12 +35,12 @@ namespace Styles {
       Text: concept({
         primary: 'Text',
       }),
-    } satisfies Concept<W.Infer<typeof concept>>;
+    };
   };
 }
 
 export const ValorantLoader = (): React.ReactNode => {
-  const [data, setData] = useState<Partial<{ SafeAreaView: any }>>(Styles.styles);
+  const [data, setData] = useState<any>(Styles.styles);
 
   return (
     <>

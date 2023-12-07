@@ -44,9 +44,9 @@ export default function Overview() {
               );
             })}
           </SafeAreaView>
+          <CoreFooter />
         </ScrollView>
       </View>
-      <CoreFooter />
     </LinearGradient>
   );
 }
