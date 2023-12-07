@@ -44,7 +44,7 @@ export const CoreFooter = (): ReactNode => {
     <View className={styles.primary}>
       <SafeAreaView>
         <AnchorContext.Provider value={value}>
-          <View className=" flex flex-row justify-between rounded-full gap-12 ">
+          <View className=" flex flex-row  justify-between rounded-full gap-12 mt-0">
             <TouchableOpacity onPress={() => callBackAnchor(value.discord?.anchor)}>
               <Image
                 source={{

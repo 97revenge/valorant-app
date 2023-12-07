@@ -33,7 +33,7 @@ export const Agents = (): React.ReactNode => {
 
     setTimeout(() => {
       setView(!false);
-    }, 2000);
+    }, 1300);
   }, []);
 
   return (

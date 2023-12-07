@@ -18,12 +18,22 @@ import { useState, useEffect, useCallback } from 'react';
 import { StackNavigationProp } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation';
 import { RateWeaponsSection } from '../../components/Sections/RateWeaponsSection';
+import { ValorantLoader } from '../../components/Loaders/ValorantLoader';
+import { reference } from '../../features/load';
 
 export default function Weapons() {
   const [load, setLoad] = useState<Array<any>>([]);
   type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Overview'>;
 
+  const [view, setView] = useState<boolean>(false);
+
   const navigation = useNavigation<OverviewScreenNavigationProps>();
+
+  const referenceTime = useCallback((state: boolean, time: number) => {
+    setTimeout(() => {
+      setView(!state);
+    }, time);
+  }, []);
 
   useEffect(() => {
     axios
@@ -33,6 +43,8 @@ export default function Weapons() {
         setLoad(data);
       })
       .catch((error) => alert(error));
+
+    reference(() => referenceTime(view, 1200));
   }, []);
 
   return (
@@ -41,54 +53,58 @@ export default function Weapons() {
       start={{ x: 0.1, y: 0.1 }}
       accessible
       className={styles.container}>
-      <CoreTitle title="Weapons" />
-      <ScrollView>
-        <View className=" w-full h-full rounded-lg p-8 bg-[#2022253f]     ">
-          {load.map((item) => {
-            return (
-              <SafeAreaView
-                key={item.uuid}
-                className=" rounded-b-lg mb-5   border-t-8  border-t-[#ffffff3f]   shadow-lg ">
-                <TouchableOpacity
-                  className="bg-[#ffffff18]"
-                  onPress={() => {
-                    navigation.navigate('WeaponsDetails', {
-                      name: item.displayName,
-                      skins: item.skins,
-                      image: item.displayIcon,
-                    });
-                  }}>
-                  <View className="flex items-start my-4 w-full p-2">
-                    <Text className="font-valorant text-white text-5xl text-start ">
-                      {item.displayName}
-                    </Text>
-                    <LinearGradient
-                      colors={['transparent', '#ffffff31']}
-                      start={{ x: 1.0, y: 0.5 }}
-                      className="w-full h-auto  px-2 py-2  rounded-lg ">
-                      <Image
-                        source={{ uri: item.displayIcon }}
-                        className="object-cover  w-[350px] h-[120px]      "
-                      />
-                    </LinearGradient>
-                  </View>
-                </TouchableOpacity>
-                <LinearGradient
-                  colors={['transparent', '#ffffff31']}
-                  start={{ x: 0.6, y: 0.3 }}
-                  className="flex  w-auto h-auto py-4 rounded-lg">
-                  <RateWeaponsSection
-                    cost={item.shopData?.cost}
-                    category={item.shopData?.category}
-                    fireRate={item.weaponStats?.fireRate}
-                    magazineSize={item.weaponStats?.magazineSize}
-                  />
-                </LinearGradient>
-              </SafeAreaView>
-            );
-          })}
-        </View>
-      </ScrollView>
+      {view == true ? (
+        <ScrollView>
+          <CoreTitle title="Weapons" />
+          <View className=" w-full h-full rounded-lg p-8 bg-[#2022253f]     ">
+            {load.map((item) => {
+              return (
+                <SafeAreaView
+                  key={item.uuid}
+                  className=" rounded-b-lg mb-5   border-t-8  border-t-[#ffffff3f]   shadow-lg ">
+                  <TouchableOpacity
+                    className="bg-[#ffffff18]"
+                    onPress={() => {
+                      navigation.navigate('WeaponsDetails', {
+                        name: item.displayName,
+                        skins: item.skins,
+                        image: item.displayIcon,
+                      });
+                    }}>
+                    <View className="flex items-start my-4 w-full p-2">
+                      <Text className="font-valorant text-white text-5xl text-start ">
+                        {item.displayName}
+                      </Text>
+                      <LinearGradient
+                        colors={['transparent', '#ffffff31']}
+                        start={{ x: 1.0, y: 0.5 }}
+                        className="w-full h-auto  px-2 py-2  rounded-lg ">
+                        <Image
+                          source={{ uri: item.displayIcon }}
+                          className="object-cover  w-[350px] h-[120px]      "
+                        />
+                      </LinearGradient>
+                    </View>
+                  </TouchableOpacity>
+                  <LinearGradient
+                    colors={['transparent', '#ffffff31']}
+                    start={{ x: 0.6, y: 0.3 }}
+                    className="flex  w-auto h-auto py-4 rounded-lg">
+                    <RateWeaponsSection
+                      cost={item.shopData?.cost}
+                      category={item.shopData?.category}
+                      fireRate={item.weaponStats?.fireRate}
+                      magazineSize={item.weaponStats?.magazineSize}
+                    />
+                  </LinearGradient>
+                </SafeAreaView>
+              );
+            })}
+          </View>
+        </ScrollView>
+      ) : (
+        <ValorantLoader />
+      )}
     </LinearGradient>
   );
 }

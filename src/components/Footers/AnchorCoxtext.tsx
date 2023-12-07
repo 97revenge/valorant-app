@@ -9,7 +9,8 @@ type Context = {
 export const AnchorContext = createContext<Context>({
   discord: {
     anchor: 'https://discord.com/invite/9V5MWgD',
-    source: 'https://cdn.iconscout.com/icon/free/png-256/free-discord-4054295-3352977.png?f=webp',
+    source:
+      'https://www.freepnglogos.com/uploads/discord-logo-png/discord-icon-flat-style-available-svg-png-eps-10.png',
   },
   x: {
     anchor: 'https://twitter.com/ValorantAPI',

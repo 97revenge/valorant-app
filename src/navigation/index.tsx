@@ -9,6 +9,8 @@ import { Agents } from '../screens/Agents/agents';
 import Weapons from '../screens/Weapons/weapons';
 
 import { TypeAgent as Agent } from '../features/zod/agentDetails';
+import { Suspense, lazy } from 'react';
+import { ValorantLoader } from '../components/Loaders/ValorantLoader';
 export type RootStackParamList = {
   Overview: undefined;
   Agents: undefined;

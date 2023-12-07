@@ -7,6 +7,12 @@ type Props = {
   magazineSize: undefined;
 };
 
+type Elem = React.ReactNode;
+
+const Cost = ({ children = <View></View> }: { children: Elem }): Elem => {
+  return <View>{children}</View>;
+};
+
 export const RateWeaponsSection = ({ cost, category, fireRate, magazineSize }: Props) => {
   return (
     <ScrollView horizontal={true} className="gap-2 w-auto px-4 py-2 rounded-lg ">

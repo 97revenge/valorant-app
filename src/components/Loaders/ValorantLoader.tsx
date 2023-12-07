@@ -1,4 +1,4 @@
-import { View, Image, Text, SafeAreaView } from 'react-native';
+import { View, Image, Text, SafeAreaView, ActivityIndicator } from 'react-native';
 import { W, wx } from 'windstitch';
 
 import { useState } from 'react';
@@ -52,7 +52,7 @@ export const ValorantLoader = (): React.ReactNode => {
             }}
             className="h-[155px] w-[220px]  object-cover mb-2 "
           />
-          <Text className="font-valorant text-5xl text-black ">Loading ... </Text>
+          <ActivityIndicator size={150} color="#b24c58" />
         </View>
       </SafeAreaView>
     </>
