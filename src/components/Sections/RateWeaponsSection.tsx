@@ -38,18 +38,45 @@ export const RateWeaponsSection = ({ cost, category, fireRate, magazineSize }: P
           </View>
         )}
       </WeaponSection.Cost>
-      <View className="bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg">
-        <Text className="font-bold text-white "> {category}</Text>
-      </View>
-      <View className="bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg">
-        <Text className="font-bold text-white ">Fire Rate: {fireRate}</Text>
-      </View>
-      <View className="bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg">
-        <Text className="font-bold text-white ">
-          Magazine Size:
-          <Text>{magazineSize} Bullets</Text>
-        </Text>
-      </View>
+
+      <WeaponSection.Category>
+        {typeof category === 'string' && (
+          <View
+            className={
+              typeof category === 'string'
+                ? 'bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg mx-1 mt-2'
+                : ''
+            }>
+            <Text className="font-bold text-white "> {category} </Text>
+          </View>
+        )}
+      </WeaponSection.Category>
+
+      <WeaponSection.FireRate>
+        {typeof fireRate === 'number' && (
+          <View
+            className={
+              typeof category === 'string'
+                ? 'bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg  mt-2'
+                : ''
+            }>
+            <Text className="font-bold text-white ">Fire Rate: {fireRate} </Text>
+          </View>
+        )}
+      </WeaponSection.FireRate>
+
+      <WeaponSection.MagazineSize>
+        {typeof magazineSize === 'number' && (
+          <View
+            className={
+              typeof category === 'string'
+                ? 'bg-[#ffffff31] w-auto p-2 rounded-lg shadow-lg  mt-2 mx-1'
+                : ''
+            }>
+            <Text className="font-bold text-white ">Magazine Size: {magazineSize} </Text>
+          </View>
+        )}
+      </WeaponSection.MagazineSize>
     </ScrollView>
   );
 };
