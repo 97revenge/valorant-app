@@ -36,7 +36,7 @@
 
 1. **Clone the repository:**
    ```bash
-   git clone git@:97revenge/valorant-app
+   git clone git@github.com:97revenge/valorant-app
    cd valorant-app
    ```
 2. **Install the dependencies**
