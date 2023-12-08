@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image, ImageBackground } from 'react-native';
+import { View, Text, ScrollView, Image } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 
 import { LinearGradient } from 'expo-linear-gradient';
@@ -27,6 +27,31 @@ export const Details = (): React.ReactNode => {
           <View className={styles.main}>
             <Text className={styles.title}>{router.params?.name}</Text>
 
+            <View className="flex  my-5 full p-2 bg-[#ffffff18] rounded-lg">
+              <LinearGradient
+                colors={['transparent', '#ffffff31']}
+                className="w-[400px] h-auto  p-2 py-2  rounded-lg items-center ">
+                <Image
+                  source={{ uri: router.params?.image }}
+                  className="object-cover  w-[380px] h-[130px]     px-2 "
+                />
+              </LinearGradient>
+            </View>
+
+            <View className="flex flex-col gap-12  w-full  p-4 ">
+              <View className=" bg-red-200 px-1 w-auto h-auto">
+                <Text>ok</Text>
+              </View>
+              <View className="bg-red-200 px-1 w-auto h-auto">
+                <Text>ok</Text>
+              </View>
+              <View className="bg-red-200 px-1 w-auto h-auto">
+                <Text>ok</Text>
+              </View>
+              <View className="bg-red-200 px-1 w-auto h-auto">
+                <Text>ok</Text>
+              </View>
+            </View>
             <View className="w-full h-[960px] object-contain  rounded-lg " />
           </View>
           <Text className="text-center font-valorant text-white text-4xl border-b-8 mx-12 rounded-lg border-[#ffffff42]">
@@ -68,8 +93,8 @@ export const Details = (): React.ReactNode => {
 
 const styles = {
   container: 'flex-1 p-6 bg-red-200 rounded-lg shadow-lg  bg-[#ffffff3f] ',
-  main: ' max-w-[960]    ',
+  main: ' max-w-[960] p-2   ',
   title:
-    'text-[64px]   font-valorant text-xl p-2 text-white text-center bg-[#ffffff36]  rounded-xl',
+    'text-[64px]  mb-2 font-valorant text-xl p-2  text-white text-center bg-[#ffffff36]  rounded-xl',
   subtitle: ' text-white text-center text-xl font-valorant font-bold ',
 };
