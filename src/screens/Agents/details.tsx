@@ -98,7 +98,7 @@ const Component = () => {
   );
 };
 
-export const Details = (): React.ReactNode => {
+export const Details = () => {
   const router = useRoute<DetailsSreenRouteProp>();
 
   return (
