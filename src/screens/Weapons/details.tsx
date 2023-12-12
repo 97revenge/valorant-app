@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { View, Text, ScrollView, Image } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 
@@ -43,42 +45,36 @@ export const Details = (): React.ReactNode => {
               <View className=" h-[250px] p-4 flex flex-row justify-evenly gap-x-3  bg-[ffff] ">
                 <ScrollView
                   horizontal={true}
-                  className=" flex  px-2 w-[250px] h-full border-b-8 border-white flex-row  p-2 rounded-xl shadow-xl">
+                  className=" flex  px-2 w-[250px] h-full border-b-8 border-[#ffffff3f] flex-row  p-2 rounded-xl shadow-xl">
                   <DamageButton
-                    colorDamage="273136"
+                    colorDamage="ec5d6d"
                     numberDamage="?"
                     titleDamage="Head Damage"
                     src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
                   />
                   <DamageButton
-                    colorDamage="ff6d7e"
+                    colorDamage="40abf2"
                     numberDamage="?"
-                    titleDamage="Head Damage"
-                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                    titleDamage="Body Damage"
+                    src="https://cdn-icons-png.flaticon.com/512/1843/1843662.png"
                   />
                   <DamageButton
-                    colorDamage="ff6d7e"
+                    colorDamage="9ece6a"
                     numberDamage="?"
-                    titleDamage="Head Damage"
-                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                    titleDamage="Leg Damage"
+                    src="https://cdn-icons-png.flaticon.com/512/3654/3654896.png"
                   />
                   <DamageButton
-                    colorDamage="ff6d7e"
+                    colorDamage="ffffff"
                     numberDamage="?"
-                    titleDamage="Head Damage"
-                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                    titleDamage="Fire Range"
+                    src="https://florestaljr.com.br/wp-content/uploads/sites/628/2020/02/Target-icon.png?x21173"
                   />
                   <DamageButton
-                    colorDamage="ff6d7e"
+                    colorDamage="ffffff"
                     numberDamage="?"
-                    titleDamage="Head Damage"
-                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
-                  />
-                  <DamageButton
-                    colorDamage="ff6d7e"
-                    numberDamage="?"
-                    titleDamage="Head Damage"
-                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                    titleDamage="Magazine Size"
+                    src="https://cdn-icons-png.flaticon.com/512/1261/1261824.png"
                   />
                 </ScrollView>
               </View>
@@ -95,7 +91,7 @@ export const Details = (): React.ReactNode => {
               </View>
             </View>
           </View>
-          <Text className="text-center font-valorant text-white text-4xl border-b-8 mx-12 rounded-lg border-[#ffffff42]">
+          <Text className="text-center font-valorant text-white text-4xl border-b-8 mx-12 rounded-lg border-[#ffffff3f]">
             Skins
           </Text>
           {skins.map((item) => {

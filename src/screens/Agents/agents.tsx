@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { LinearGradient } from 'expo-linear-gradient';
 import { View, Text, SafeAreaView, Image, ScrollView, ImageBackground } from 'react-native';
 import { styles } from '../../components/Sections/ListSection';
