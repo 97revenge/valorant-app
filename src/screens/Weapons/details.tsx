@@ -5,18 +5,31 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { RootStackParamList } from '../../navigation';
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { DamageButton } from '../../components/Buttons/DamageButton';
 type DetailsSreenRouteProp = RouteProp<RootStackParamList, 'WeaponsDetails'>;
+
+type Damage = {
+  numberDamage: number | string;
+  titleDamage: string;
+  src: string;
+};
 
 export const Details = (): React.ReactNode => {
   const router = useRoute<DetailsSreenRouteProp>();
 
   const [skins, setSkins] = useState<Array<any>>([]);
 
+  const [weaponStats, setWeaponStats] = useState<object>(new Object());
+
+  const checkoutSkins = useCallback(({ skins, on }: { skins: string; on?: () => void }) => {
+    type Concept = Pick<typeof router.params, 'skins'>;
+    const concept: Concept = router.params?.skins;
+    setSkins(concept);
+  }, []);
+
   useEffect(() => {
-    const data = router.params?.skins;
-    setSkins(data);
+    checkoutSkins('skins');
   }, []);
 
   return (
