@@ -7,7 +7,7 @@ import { RootStackParamList } from '../../navigation';
 
 type DetailsSreenRouteProp = RouteProp<RootStackParamList, 'AgentDetails'>;
 
-const Component = () => {
+const Component = (): React.ReactNode => {
   const router = useRoute<DetailsSreenRouteProp>();
 
   return (

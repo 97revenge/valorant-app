@@ -3,7 +3,8 @@ import { RouteProp, useRoute } from '@react-navigation/native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 import { RootStackParamList } from '../../navigation';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { DamageButton } from '../../components/Buttons/DamageButton';
 type DetailsSreenRouteProp = RouteProp<RootStackParamList, 'WeaponsDetails'>;
 
 export const Details = (): React.ReactNode => {
@@ -27,7 +28,7 @@ export const Details = (): React.ReactNode => {
           <View className={styles.main}>
             <Text className={styles.title}>{router.params?.name}</Text>
 
-            <View className="flex  my-5 full p-2 bg-[#ffffff18] rounded-lg">
+            <View className="flex  my-2 full p-2 bg-[#ffffff18] rounded-lg">
               <LinearGradient
                 colors={['transparent', '#ffffff31']}
                 className="w-[400px] h-auto  p-2 py-2  rounded-lg items-center ">
@@ -38,21 +39,61 @@ export const Details = (): React.ReactNode => {
               </LinearGradient>
             </View>
 
-            <View className="flex flex-col gap-12  w-full  p-4 ">
-              <View className=" bg-red-200 px-1 w-auto h-auto">
+            <View className="flex flex-col gap-y-1  w-auto    m-2 h-[960px] rounded-lg bg-[#ffffff18] shadow-lg  ">
+              <View className=" h-[250px] p-4 flex flex-row justify-evenly gap-x-3  bg-[ffff] ">
+                <ScrollView
+                  horizontal={true}
+                  className=" flex  px-2 w-[250px] h-full border-b-8 border-white flex-row  p-2 rounded-xl shadow-xl">
+                  <DamageButton
+                    colorDamage="273136"
+                    numberDamage="?"
+                    titleDamage="Head Damage"
+                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                  />
+                  <DamageButton
+                    colorDamage="ff6d7e"
+                    numberDamage="?"
+                    titleDamage="Head Damage"
+                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                  />
+                  <DamageButton
+                    colorDamage="ff6d7e"
+                    numberDamage="?"
+                    titleDamage="Head Damage"
+                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                  />
+                  <DamageButton
+                    colorDamage="ff6d7e"
+                    numberDamage="?"
+                    titleDamage="Head Damage"
+                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                  />
+                  <DamageButton
+                    colorDamage="ff6d7e"
+                    numberDamage="?"
+                    titleDamage="Head Damage"
+                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                  />
+                  <DamageButton
+                    colorDamage="ff6d7e"
+                    numberDamage="?"
+                    titleDamage="Head Damage"
+                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                  />
+                </ScrollView>
+              </View>
+
+              <View className=" px-1 w-auto h-[105px] rounded-lg bg-[#ffffff18]">
                 <Text>ok</Text>
               </View>
-              <View className="bg-red-200 px-1 w-auto h-auto">
+
+              <View className=" px-1 w-auto h-[105px] rounded-lg bg-[#ffffff18]">
                 <Text>ok</Text>
               </View>
-              <View className="bg-red-200 px-1 w-auto h-auto">
-                <Text>ok</Text>
-              </View>
-              <View className="bg-red-200 px-1 w-auto h-auto">
+              <View className=" px-1 w-auto h-[105px] rounded-lg bg-[#ffffff18]">
                 <Text>ok</Text>
               </View>
             </View>
-            <View className="w-full h-[960px] object-contain  rounded-lg " />
           </View>
           <Text className="text-center font-valorant text-white text-4xl border-b-8 mx-12 rounded-lg border-[#ffffff42]">
             Skins
