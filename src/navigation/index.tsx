@@ -11,6 +11,7 @@ import Weapons from '../screens/Weapons/weapons';
 import { TypeAgent as Agent } from '../features/zod/agentDetails';
 import { Maps } from '../screens/Maps/maps';
 import { MapsDetails } from '../screens/Maps/details';
+
 export type RootStackParamList = {
   Overview: undefined;
   Agents: undefined;

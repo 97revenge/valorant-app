@@ -1,4 +1,6 @@
-import axios from 'axios';
+// @ts-nocheck
+
+import axios, { AxiosResponse, AxiosError } from 'axios';
 import { useEffect, useState } from 'react';
 import { View, Text, Image, TouchableOpacity, SafeAreaView } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -6,19 +8,35 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { styles } from '../../components/Sections/ListSection';
 import { LinearGradient } from 'expo-linear-gradient';
 import CoreTitle from '../../components/Headers/CoreTitle';
+import { useNavigation } from '@react-navigation/native';
+
+type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Overview'>;
 
 export const Maps = (): React.ReactNode => {
+  const navigation = useNavigation<OverviewScreenNavigationProps>();
+
   const [maps, setMaps] = useState<Array<any>>([]);
 
   useEffect(() => {
     axios
       .get('https://valorant-api.com/v1/maps')
-      .then((res) => {
+      .then((res: AxiosResponse) => {
         const { data } = res.data;
+
         setMaps(data);
         // alert(JSON.stringify(maps));
       })
-      .catch((err) => alert(err));
+      .catch((err: AxiosError) => {
+        if (err instanceof AxiosError) {
+          alert(
+            JSON.stringify({
+              cause: err.cause,
+              code: err.code,
+              config: err.config,
+            })
+          );
+        }
+      });
   }, []);
 
   return (
@@ -37,7 +55,9 @@ export const Maps = (): React.ReactNode => {
                 key={item.uuid}
                 className="rounded-b-lg mb-5 bg-[#ffffff18]  border-t-8  border-t-[#ffffff3f]   shadow-lg ">
                 <SafeAreaView className="">
-                  <TouchableOpacity className=" w-full p-5 rounded-lg ">
+                  <TouchableOpacity
+                    className=" w-full p-5 rounded-lg "
+                    onPress={() => navigation.navigate('MapsDetails')}>
                     <View className="flex  justify-between flex-row  items-center">
                       <Text className="text-[55px] text-start font-valorant text-white mb-2">
                         {item.displayName}
