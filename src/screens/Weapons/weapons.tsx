@@ -72,9 +72,9 @@ export default function Weapons() {
                         skins: item.skins,
                         image: item.displayIcon,
 
-                        stats: item.weaponStats?.damageRanges,
-                        fireRate: item.weaponStats?.fireRate,
-                        magazineSize: item.weaponStats?.magazineSize,
+                        stats: item?.weaponStats?.damageRanges as null,
+                        fireRate: item?.weaponStats?.fireRate as null,
+                        magazineSize: item?.weaponStats?.magazineSize as null,
                       });
                     }}>
                     <View className="flex items-start my-4 w-full p-2">

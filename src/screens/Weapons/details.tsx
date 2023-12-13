@@ -42,7 +42,7 @@ export const Details = (): React.ReactNode => {
       accessible
       className={styles.container}>
       <ScrollView>
-        <View className="rounded-b-lg  bg-[#ffffff18]  border-t-8  border-t-[#ffffff3f]    shadow-2xl">
+        <View className="rounded-b-lg  bg-[#ffffff18]  border-t-8  border-t-[#ffffff3f] text-3xl    shadow-2xl">
           <View className={styles.main}>
             <Text className={styles.title}>{router.params?.name}</Text>
 
@@ -57,57 +57,50 @@ export const Details = (): React.ReactNode => {
               </LinearGradient>
             </View>
 
-            <View className="flex flex-col gap-y-1  w-auto    m-2 h-[960px] rounded-lg bg-[#ffffff18] shadow-lg  ">
-              <View className=" h-[250px] p-4 flex flex-row justify-evenly gap-x-3  bg-[ffff] ">
-                <ScrollView
-                  horizontal={true}
-                  className=" flex  px-2 w-[250px] h-full border-b-8 border-[#ffffff3f] flex-row  p-2 rounded-xl shadow-xl">
-                  <DamageButton
-                    colorDamage="ec5d6d"
-                    numberDamage={concept[0]?.headDamage}
-                    titleDamage="Head Damage"
-                    src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
-                  />
-                  <DamageButton
-                    colorDamage="40abf2"
-                    numberDamage={concept[0]?.bodyDamage}
-                    titleDamage="Body Damage"
-                    src="https://cdn-icons-png.flaticon.com/512/1843/1843662.png"
-                  />
-                  <DamageButton
-                    colorDamage="9ece6a"
-                    numberDamage={concept[0]?.legDamage}
-                    titleDamage="Leg Damage"
-                    src="https://cdn-icons-png.flaticon.com/512/3654/3654896.png"
-                  />
-                  <DamageButton
-                    colorDamage="ffffff"
-                    numberDamage={router.params?.fireRate}
-                    titleDamage="Fire Range & Rate"
-                    src="https://florestaljr.com.br/wp-content/uploads/sites/628/2020/02/Target-icon.png?x21173"
-                  />
-                  <DamageButton
-                    colorDamage="ffffff"
-                    numberDamage={router.params?.magazineSize}
-                    titleDamage="magazine Size"
-                    src="https://cdn-icons-png.flaticon.com/512/1261/1261824.png"
-                  />
-                </ScrollView>
+            {typeof concept === 'undefined' ? (
+              ''
+            ) : (
+              <View className="flex flex-col gap-y-0  w-auto  m-0 my-12 h-auto rounded-lg bg-[#ffffff18] shadow-lg  ">
+                <View className=" h-[250px] p-4 flex flex-row justify-evenly gap-x-3  bg-[ffff] ">
+                  <ScrollView
+                    horizontal={true}
+                    className=" flex  px-2 w-[250px] h-full  flex-row  p-2 rounded-xl shadow-xl">
+                    <DamageButton
+                      colorDamage="ec5d6d"
+                      numberDamage={typeof concept === 'undefined' ? '' : concept[0]?.headDamage}
+                      titleDamage="Head Damage"
+                      src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
+                    />
+                    <DamageButton
+                      colorDamage="40abf2"
+                      numberDamage={typeof concept === 'undefined' ? '' : concept[0]?.bodyDamage}
+                      titleDamage="Body Damage"
+                      src="https://cdn-icons-png.flaticon.com/512/1843/1843662.png"
+                    />
+                    <DamageButton
+                      colorDamage="9ece6a"
+                      numberDamage={typeof concept === 'undefined' ? '' : concept[0]?.legDamage}
+                      titleDamage="Leg Damage"
+                      src="https://cdn-icons-png.flaticon.com/512/3654/3654896.png"
+                    />
+                    <DamageButton
+                      colorDamage="ffffff"
+                      numberDamage={router.params?.fireRate}
+                      titleDamage="Fire Range & Rate"
+                      src="https://florestaljr.com.br/wp-content/uploads/sites/628/2020/02/Target-icon.png?x21173"
+                    />
+                    <DamageButton
+                      colorDamage="ffffff"
+                      numberDamage={router.params?.magazineSize}
+                      titleDamage="magazine Size"
+                      src="https://cdn-icons-png.flaticon.com/512/1261/1261824.png"
+                    />
+                  </ScrollView>
+                </View>
               </View>
-
-              <View className=" px-1 w-auto h-[105px] rounded-lg bg-[#ffffff18]">
-                <Text>ok</Text>
-              </View>
-
-              <View className=" px-1 w-auto h-[105px] rounded-lg bg-[#ffffff18]">
-                <Text>ok</Text>
-              </View>
-              <View className=" px-1 w-auto h-[105px] rounded-lg bg-[#ffffff18]">
-                <Text>ok</Text>
-              </View>
-            </View>
+            )}
           </View>
-          <Text className="text-center font-valorant text-white text-4xl border-b-8 mx-12 rounded-lg border-[#ffffff3f]">
+          <Text className="text-center font-valorant text-white text-6xl border-b-8 mx-28 rounded-lg border-[#ffffff3f]">
             Skins
           </Text>
           {skins.map((item) => {

@@ -4,12 +4,14 @@ import { View, Text, Image } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
 
-type Props = {
-  colorDamage: string;
-  src: string;
-  titleDamage: string;
-  numberDamage: string;
-};
+type Props =
+  | {
+      colorDamage: string | undefined;
+      src: string | undefined;
+      titleDamage: string | undefined;
+      numberDamage: string | undefined;
+    }
+  | undefined;
 
 export const DamageButton = ({
   colorDamage,
