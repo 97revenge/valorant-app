@@ -9,27 +9,30 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { DamageButton } from '../../components/Buttons/DamageButton';
 type DetailsSreenRouteProp = RouteProp<RootStackParamList, 'WeaponsDetails'>;
 
-type Damage = {
-  numberDamage: number | string;
+type StatsSchema = {
+  colorDamage: string;
+  numberDamage: string | number;
   titleDamage: string;
   src: string;
 };
 
 export const Details = (): React.ReactNode => {
   const router = useRoute<DetailsSreenRouteProp>();
-
   const [skins, setSkins] = useState<Array<any>>([]);
 
-  const [weaponStats, setWeaponStats] = useState<object>(new Object());
-
-  const checkoutSkins = useCallback(({ skins, on }: { skins: string; on?: () => void }) => {
+  const checkoutSkins = useCallback(() => {
     type Concept = Pick<typeof router.params, 'skins'>;
     const concept: Concept = router.params?.skins;
     setSkins(concept);
   }, []);
 
+  const concept: Array<any> = router.params?.stats;
+
+  // setWeaponStats(concept);
+  // alert(JSON.stringify(weaponStats));
+
   useEffect(() => {
-    checkoutSkins('skins');
+    checkoutSkins();
   }, []);
 
   return (
@@ -61,32 +64,32 @@ export const Details = (): React.ReactNode => {
                   className=" flex  px-2 w-[250px] h-full border-b-8 border-[#ffffff3f] flex-row  p-2 rounded-xl shadow-xl">
                   <DamageButton
                     colorDamage="ec5d6d"
-                    numberDamage="?"
+                    numberDamage={concept[0]?.headDamage}
                     titleDamage="Head Damage"
                     src="https://cdn-icons-png.flaticon.com/512/158/158766.png"
                   />
                   <DamageButton
                     colorDamage="40abf2"
-                    numberDamage="?"
+                    numberDamage={concept[0]?.bodyDamage}
                     titleDamage="Body Damage"
                     src="https://cdn-icons-png.flaticon.com/512/1843/1843662.png"
                   />
                   <DamageButton
                     colorDamage="9ece6a"
-                    numberDamage="?"
+                    numberDamage={concept[0]?.legDamage}
                     titleDamage="Leg Damage"
                     src="https://cdn-icons-png.flaticon.com/512/3654/3654896.png"
                   />
                   <DamageButton
                     colorDamage="ffffff"
-                    numberDamage="?"
-                    titleDamage="Fire Range"
+                    numberDamage={router.params?.fireRate}
+                    titleDamage="Fire Range & Rate"
                     src="https://florestaljr.com.br/wp-content/uploads/sites/628/2020/02/Target-icon.png?x21173"
                   />
                   <DamageButton
                     colorDamage="ffffff"
-                    numberDamage="?"
-                    titleDamage="Magazine Size"
+                    numberDamage={router.params?.magazineSize}
+                    titleDamage="magazine Size"
                     src="https://cdn-icons-png.flaticon.com/512/1261/1261824.png"
                   />
                 </ScrollView>
@@ -122,13 +125,6 @@ export const Details = (): React.ReactNode => {
                         source={{ uri: item.displayIcon }}
                         className=" object-fill w-[320px] h-[120px]  "
                       />
-                    </View>
-                    <View className="  bg-[#ffffff0e] w-auto h-auto rounded-lg  items-center px-5 justify-center">
-                      <Image
-                        source={{ uri: chromas?.displayIcon }}
-                        className=" object-fill w-[320px] h-[120px]  "
-                      />
-                      <Text className="text-center font-valorant text-xl py-2">Chroma Version</Text>
                     </View>
                   </ScrollView>
                 </View>

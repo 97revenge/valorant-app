@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { View, Text, Image } from 'react-native';
 
 import { LinearGradient } from 'expo-linear-gradient';
@@ -28,11 +30,13 @@ export const DamageButton = ({
           />
         </LinearGradient>
       </View>
-      <View className="px-6 py-0.5  rounded-lg h-[90px] bg-[#ffffff56] shadow-xl">
+      <View className="px-5 py-0.5  rounded-lg h-[93px] bg-[#ffffff56] shadow-xl w-full">
         <Text className=" item-start w-full  text-center text-[15px] font-bold border-b-2 rounded-sm">
           {titleDamage}
         </Text>
-        <Text className="text-6xl font-bold text-center py-2">{numberDamage}</Text>
+        <Text className="text-4xl  font-bold text-center py-2 border-b-2  border-b-[#ffffff56] bg-[#ffffff2a] rounded-lg shadow-xl h-11 my-1 ">
+          {numberDamage}
+        </Text>
       </View>
     </View>
   );

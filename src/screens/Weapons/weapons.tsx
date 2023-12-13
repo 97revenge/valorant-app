@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import axios, { AxiosResponse, AxiosError } from 'axios';
 import { useNavigation } from '@react-navigation/native';
 
@@ -69,6 +71,10 @@ export default function Weapons() {
                         name: item.displayName,
                         skins: item.skins,
                         image: item.displayIcon,
+
+                        stats: item.weaponStats?.damageRanges,
+                        fireRate: item.weaponStats?.fireRate,
+                        magazineSize: item.weaponStats?.magazineSize,
                       });
                     }}>
                     <View className="flex items-start my-4 w-full p-2">

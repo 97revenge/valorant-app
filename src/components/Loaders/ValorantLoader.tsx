@@ -1,3 +1,5 @@
+//@ts-nocheck
+
 import { View, Image, Text, SafeAreaView, ActivityIndicator } from 'react-native';
 import { W, wx } from 'windstitch';
 

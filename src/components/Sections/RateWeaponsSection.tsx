@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { ScrollView, View, Text } from 'react-native';
 import { W, wx } from 'windstitch';
 
