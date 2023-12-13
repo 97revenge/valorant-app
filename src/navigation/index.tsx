@@ -9,14 +9,16 @@ import { Agents } from '../screens/Agents/agents';
 import Weapons from '../screens/Weapons/weapons';
 
 import { TypeAgent as Agent } from '../features/zod/agentDetails';
-import { Suspense, lazy } from 'react';
-import { ValorantLoader } from '../components/Loaders/ValorantLoader';
+import { Maps } from '../screens/Maps/maps';
+import { MapsDetails } from '../screens/Maps/details';
 export type RootStackParamList = {
   Overview: undefined;
   Agents: undefined;
   AgentDetails: Agent;
   Weapons: undefined;
   WeaponsDetails: any;
+  Maps: undefined;
+  MapsDetails: any;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -65,6 +67,8 @@ export default function RootStack() {
           component={WeaponsDetails}
           options={{ headerShown: false }}
         />
+        <Stack.Screen name="Maps" component={Maps} options={{ headerShown: false }} />
+        <Stack.Screen name="MapsDetails" component={MapsDetails} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );

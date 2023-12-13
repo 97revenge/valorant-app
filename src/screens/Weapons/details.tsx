@@ -28,9 +28,6 @@ export const Details = (): React.ReactNode => {
 
   const concept: Array<any> = router.params?.stats;
 
-  // setWeaponStats(concept);
-  // alert(JSON.stringify(weaponStats));
-
   useEffect(() => {
     checkoutSkins();
   }, []);
@@ -46,13 +43,13 @@ export const Details = (): React.ReactNode => {
           <View className={styles.main}>
             <Text className={styles.title}>{router.params?.name}</Text>
 
-            <View className="flex  my-2 full p-2 bg-[#ffffff18] rounded-lg">
+            <View className="flex  my-2  p-2 bg-[#ffffff18] rounded-lg">
               <LinearGradient
                 colors={['transparent', '#ffffff31']}
-                className="w-[400px] h-auto  p-2 py-2  rounded-lg items-center ">
+                className=" w-[400px] h-auto  p-2 py-2  rounded-lg items-center ">
                 <Image
                   source={{ uri: router.params?.image }}
-                  className="object-cover  w-[380px] h-[130px]     px-2 "
+                  className="object-cover  w-[380px] h-[130px] px-2 "
                 />
               </LinearGradient>
             </View>
@@ -60,7 +57,10 @@ export const Details = (): React.ReactNode => {
             {typeof concept === 'undefined' ? (
               ''
             ) : (
-              <View className="flex flex-col gap-y-0  w-auto  m-0 my-12 h-auto rounded-lg bg-[#ffffff18] shadow-lg  ">
+              <View className="flex flex-col gap-y-0  w-auto  m-0 my-5 h-auto rounded-lg bg-[#ffffff18] shadow-lg  ">
+                <Text className="text-center font-valorant pt-5 text-3xl text-white border-b-4 rounded-lg border-[#ffffff3f] mx-12">
+                  Weapon Status
+                </Text>
                 <View className=" h-[250px] p-4 flex flex-row justify-evenly gap-x-3  bg-[ffff] ">
                   <ScrollView
                     horizontal={true}
@@ -104,8 +104,6 @@ export const Details = (): React.ReactNode => {
             Skins
           </Text>
           {skins.map((item) => {
-            const { chromas } = item;
-
             return (
               <View className=" p-2 mt-5 " key={item.uuid}>
                 <View className={styles.container}>

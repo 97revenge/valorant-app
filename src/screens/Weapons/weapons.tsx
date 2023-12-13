@@ -63,7 +63,7 @@ export default function Weapons() {
               return (
                 <SafeAreaView
                   key={item.uuid}
-                  className=" rounded-b-lg mb-5   border-t-8  border-t-[#ffffff3f]   shadow-lg ">
+                  className=" rounded-b-lg mb-5   border-t-8  border-t-[#ffffff3f]   shadow-lg  ">
                   <TouchableOpacity
                     className="bg-[#ffffff18]"
                     onPress={() => {
