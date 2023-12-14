@@ -11,6 +11,7 @@ import Weapons from '../screens/Weapons/weapons';
 import { TypeAgent as Agent } from '../features/zod/agentDetails';
 import { Maps } from '../screens/Maps/maps';
 import { MapsDetails } from '../screens/Maps/details';
+import { Competitive } from '../screens/Competitive/competitive';
 
 export type RootStackParamList = {
   Overview: undefined;
@@ -20,6 +21,8 @@ export type RootStackParamList = {
   WeaponsDetails: any;
   Maps: undefined;
   MapsDetails: any;
+  Competitive: undefined;
+  CompDetails: any;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -70,6 +73,7 @@ export default function RootStack() {
         />
         <Stack.Screen name="Maps" component={Maps} options={{ headerShown: false }} />
         <Stack.Screen name="MapsDetails" component={MapsDetails} options={{ headerShown: false }} />
+        <Stack.Screen name="Competitive" component={Competitive} options={{ headerShown: false }} />
       </Stack.Navigator>
     </NavigationContainer>
   );
