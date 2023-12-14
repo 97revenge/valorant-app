@@ -129,7 +129,7 @@ export const Details = (): React.ReactNode => {
 };
 
 const styles = {
-  container: 'flex-1 p-6 bg-red-200 rounded-lg shadow-lg  bg-[#ffffff3f] ',
+  container: 'flex-1 p-6 bg-red-200  shadow-lg  bg-[#ffffff3f] ',
   main: ' max-w-[960] p-2   ',
   title:
     'text-[64px]  mb-2 font-valorant text-xl p-2  text-white text-center bg-[#ffffff36]  rounded-xl',
