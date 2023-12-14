@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { LinearGradient } from 'expo-linear-gradient';
 import { Text, View, Image } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
@@ -6,6 +8,21 @@ import { ScrollView } from 'react-native-gesture-handler';
 import { useEffect, useState } from 'react';
 
 type DetailScreenRouteProp = RouteProp<RootStackParamList, 'MapsDetails'>;
+
+const Location = ({ data, target }: { data: string; target: string }) => {
+  return (
+    <View className="flex items-start justify-between w-[140px]  h-[80px] bg-[#ffffff] rounded-lg overflow-hidden shadow-xl">
+      <View className="flex flex-col items-start justify-end px-2 py-4 h-auto ">
+        <Text className=" border-b-4 border-[#0a040438]  rounded-md font-bold  text-6xl  [font-family:'Switzer-Semibold',Helvetica]  text-black text-[40.4px] text-center  ">
+          {data}
+        </Text>
+        <Text className="relative w-fit font-bold text-lg [font-family:'Switzer-Semibold',Helvetica]  text-[#bdbdbd]  text-center tracking-[-0.11px] leading-[normal]">
+          {target}
+        </Text>
+      </View>
+    </View>
+  );
+};
 
 export const MapsDetails = (): React.ReactNode => {
   const router = useRoute<DetailScreenRouteProp>();
@@ -44,20 +61,33 @@ export const MapsDetails = (): React.ReactNode => {
               />
             </View>
           </View>
-          <View className="px-4 py-2 h-[900px] ">
+          <View className="px-4 py-2 h-auto ">
             <Text className="text-center font-valorant text-white text-6xl border-b-8 mx-12 rounded-lg border-[#ffffff3f]">
               Statistics
             </Text>
-            <ScrollView className="my-2 ">
-              {call.map((item) => {
+            <ScrollView className="my-2  rounded-lg bg-[#ffffff18] px-2 w-auto h-[650px]">
+              {call.map((item, index) => {
                 return (
-                  <View className=" flex flex-row   bg-[#ffffff18]  w-[410px] rounded-md h-[130px] px-2 items-center gap-x-2 my-3">
-                    <Text className="font-valorant text-md text-white ">{item.regionName}</Text>
-                    <Text className="text-md font-bold underline">{item.superRegionName}</Text>
-                    <Text className="bg-red-200 px-2"> Location X : {item.location.x}</Text>
-                    <Text className="bg-yellow-600 px-2 h-auto">
-                      Location Y : {item.location.y}
-                    </Text>
+                  <View
+                    className=" flex flex-col   bg-[#ffffff18]  w-auto rounded-xl h-[180px] p-6   my-1"
+                    key={index}>
+                    <View className="flex flex-row justify-center">
+                      <Text className="font-valorant text-md text-white text-3xl border-b-4 mr-auto border-[#ffffff18] ">
+                        {item.regionName}
+                      </Text>
+                      <Text className="text-md font-bold  text-3xl text-gray-200 border-b-4 border-[#ffffff18] px-auto">
+                        {item.superRegionName}
+                      </Text>
+                    </View>
+                    <View className="flex w-full h-auto py-2 justify-around  flex-row ">
+                      <View>
+                        <Location data={item.location.x} target="Location Y" />
+                      </View>
+                      <View>
+                        <Location data={item.location.x} target="Location X" />
+                      </View>
+                    </View>
+                    <View className="flex flex-row items-center justify-center w-full my-6"></View>
                   </View>
                 );
               })}
@@ -69,23 +99,9 @@ export const MapsDetails = (): React.ReactNode => {
   );
 };
 
-// {call.map((item) => {
-//   return (
-//     <View className=" flex flex-col  bg-[#ffffff18]  w-[410px] rounded-md h-[100%] px-2 items-center gap-x-2">
-//       <Text className="font-valorant text-md text-white ">{item.regionName}</Text>
-//       <Text className="text-md font-bold underline">{item.superRegionName}</Text>
-//       <Text className="bg-red-200 px-2"> Location X : {item.location.x}</Text>
-//       <Text className="bg-yellow-600 px-2 h-auto">
-//         {' '}
-//         Location y : {item.location.y}
-//       </Text>
-//     </View>
-//   );
-// })}
-
 const styles = {
   container: 'flex-1 p-6 bg-[#ffffff95] shadow-lg  shadow-lg  bg-[#ffffff3f] ',
-  main: ' max-w-[960px] p-2   ',
+  main: ' max-w-[1020px] p-2   ',
   title:
     'text-[64px]  mb-2 font-valorant text-xl p-2  text-white text-center bg-[#ffffff36]  rounded-xl',
   subtitle: ' text-white text-center text-xl font-valorant font-bold ',
