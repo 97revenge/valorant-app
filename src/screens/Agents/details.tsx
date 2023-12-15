@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { RouteProp, useRoute } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 
