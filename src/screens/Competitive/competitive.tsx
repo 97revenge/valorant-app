@@ -49,7 +49,7 @@ export const Competitive = (): React.ReactNode => {
           <SafeAreaView className="w-full h-full rounded-lg p-8 bg-[#2022253f]">
             {comp.map((item, index) => {
               const { tiers } = item;
-              const data: Array<any> = tiers;
+              const data = tiers;
               // console.log(data);
               return (
                 <SafeAreaView
@@ -59,7 +59,8 @@ export const Competitive = (): React.ReactNode => {
                     className=" w-full p-5 rounded-lg "
                     onPress={() =>
                       navigation.navigate('CompDetails', {
-                        name: 'ok',
+                        data: data,
+                        asset: item.assetObjectName,
                       })
                     }>
                     <View className="flex  justify-center flex-row gap-12 items-center">
