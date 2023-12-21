@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Overview from '../screens/overview';
 import { Details as AgentDetails } from '../screens/Agents/details';
 import { Details as WeaponsDetails } from '../screens/Weapons/details';
+import { Details as SeasonDetails } from '../screens/Seasons/details';
 
 import { Agents } from '../screens/Agents/agents';
 import Weapons from '../screens/Weapons/weapons';
@@ -13,6 +14,7 @@ import { Maps } from '../screens/Maps/maps';
 import { MapsDetails } from '../screens/Maps/details';
 import { Competitive } from '../screens/Competitive/competitive';
 import { CompDetails } from '../screens/Competitive/details';
+import { Seasons } from '../screens/Seasons/seasons';
 
 export type RootStackParamList = {
   Overview: undefined;
@@ -24,6 +26,8 @@ export type RootStackParamList = {
   MapsDetails: any;
   Competitive: undefined;
   CompDetails: any;
+  Seasons: undefined;
+  SeasonsDetails: any;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -94,12 +98,22 @@ export default function RootStack() {
           }}
         />
         <Stack.Screen name="CompDetails" component={CompDetails} options={{ headerShown: false }} />
+        <Stack.Screen
+          name="Seasons"
+          component={Seasons}
+          options={{
+            title: '',
+            headerStyle: {
+              backgroundColor: '#c54653',
+            },
+          }}
+        />
+        <Stack.Screen
+          name="SeasonsDetails"
+          component={SeasonDetails}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = {
-  backButton: 'flex-row',
-  backButtonText: 'text-blue-500 ml-1',
-};

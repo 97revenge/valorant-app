@@ -19,6 +19,7 @@ import { ValorantLoader } from '../../components/Loaders/ValorantLoader';
 type OverviewScreenNavigationProps = StackNavigationProp<RootStackParamList, 'Overview'>;
 
 import { Loader } from '../../features/load/index';
+
 export const Agents = (): React.ReactNode => {
   const navigation = useNavigation<OverviewScreenNavigationProps>();
   const [load, setLoad] = useState<Array<any>>([]);

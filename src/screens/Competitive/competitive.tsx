@@ -65,7 +65,7 @@ export const Competitive = (): React.ReactNode => {
                     }>
                     <View className="flex  justify-center flex-row gap-12 items-center">
                       <Text className="text-[60px] text-start font-valorant text-white">
-                        Season
+                        Episode
                       </Text>
                       <Text className="text-[55px] text-start font-valorant text-white">
                         {index}

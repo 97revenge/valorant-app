@@ -1,9 +1,10 @@
 // @ts-nocheck
 
-import { View, Text, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
+import { View, Text, Image, ScrollView, StatusBar } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useFonts } from 'expo-font';
 import React, { useCallback, useEffect, useState } from 'react';
+
+import * as Font from 'expo-font';
 
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { InitialButton } from '../components/Buttons/InitialButton';
@@ -15,11 +16,15 @@ import { CoreFooter } from '../components/Footers/CoreFooter';
 export default function Overview() {
   const [tag] = useState<string[]>(['Agents', 'Weapons', 'Maps', 'Competitive', 'Seasons']);
 
-  const [loaded] = useFonts({
-    'valorant-font': require('../../assets/fonts/Valorant.ttf'),
+  const loadFonts = useCallback(async () => {
+    await Font.loadAsync({
+      'valorant-font': require('../../assets/fonts/Valorant.ttf'),
+    });
   });
 
-  useEffect(() => {}, [loaded]);
+  useEffect(() => {
+    loadFonts();
+  }, []);
 
   return (
     <LinearGradient

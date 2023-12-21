@@ -22,28 +22,38 @@ export const CompDetails = (): React.ReactNode => {
       accessible
       className={styles.container}>
       <ScrollView className=" w-full h-[960px] rounded-lg p-6 bg-[#2022253f] ">
-        {data.map((item) => {
+        {data.map((item, index) => {
           return (
-            <View className=" w-full h-auto py-3 ">
-              <View className="flex flex-row  border-t-8  border-t-[#ffffff3f]   shadow-lg  p-2 rounded-lg gap-y-2 w-auto h-auto bg-[#fff1] justify-start gap-x-[3%]">
+            <View className=" w-full h-auto py-3 " key={index}>
+              <LinearGradient
+                colors={[`#${item?.backgroundColor}`, 'transparent']}
+                end={{ x: 0.7, y: 0.8 }}
+                className="flex flex-row  border-t-8  border-t-[#ffffff3f]   shadow-lg  p-2 rounded-lg gap-y-2 w-auto h-auto bg-[#fff1] justify-start gap-x-[3%]">
                 <SafeAreaView className=" w-[45%]">
-                  <View className="flex  justify-start flex-row gap-12 w-auto  h-auto  ">
+                  <View className="flex  justify-center flex-row  py-5 w-auto  h-auto  ">
                     <Text className="text-[55px] text-start font-valorant text-white">
                       Tier {item.tier}
                     </Text>
                   </View>
-                  <Text className="p-2 mx-[20%] valorant-font text-white text-xl text-center font-bold">
+                  <Text className="p-2  valorant-font text-white text-3xl text-center font-bold w-full ">
                     {item.tierName}
                   </Text>
                 </SafeAreaView>
                 <View className="p-2">
-                  <Image
-                    source={{ uri: item.largeIcon }}
-                    className="h-[150px] w-[150px] relative"
-                  />
+                  {item.largeIcon ? (
+                    <Image
+                      source={{ uri: item.largeIcon }}
+                      className="h-[150px] w-[150px] relative"
+                    />
+                  ) : (
+                    <Image
+                      source={{ uri: 'https://cdn-icons-png.flaticon.com/256/57/57108.png' }}
+                      className="h-[150px] w-[150px] relative"
+                    />
+                  )}
 
                   <LinearGradient
-                    colors={[`#${item.color}`, 'transparent']}
+                    colors={[`transparent`, 'transparent']}
                     end={{ x: 0, y: 0.9 }}
                     className="flex flex-row justify-center mt-2 py-1  h-auto  w-auto items-center rounded-lg shadow-lg ">
                     <Image
@@ -56,7 +66,7 @@ export const CompDetails = (): React.ReactNode => {
                     />
                   </LinearGradient>
                 </View>
-              </View>
+              </LinearGradient>
             </View>
           );
         })}

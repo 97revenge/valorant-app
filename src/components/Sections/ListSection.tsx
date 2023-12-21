@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { View, Text, Image, ScrollView, TouchableOpacity, StatusBar } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
