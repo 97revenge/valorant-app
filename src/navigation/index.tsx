@@ -4,7 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Overview from '../screens/overview';
 import { Details as AgentDetails } from '../screens/Agents/details';
 import { Details as WeaponsDetails } from '../screens/Weapons/details';
-import { Details as SeasonDetails } from '../screens/Seasons/details';
+import { Details as StandartDetails } from '../screens/Seasons/Standart';
+import { Details as CompetitiveDetails } from '../screens/Seasons/Competitive';
 
 import { Agents } from '../screens/Agents/agents';
 import Weapons from '../screens/Weapons/weapons';
@@ -27,7 +28,8 @@ export type RootStackParamList = {
   Competitive: undefined;
   CompDetails: any;
   Seasons: undefined;
-  SeasonsDetails: any;
+  StandartDetails: any;
+  CompetitiveDetails: any;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -109,8 +111,13 @@ export default function RootStack() {
           }}
         />
         <Stack.Screen
-          name="SeasonsDetails"
-          component={SeasonDetails}
+          name="StandartDetails"
+          component={StandartDetails}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="CompetitiveDetails"
+          component={CompetitiveDetails}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

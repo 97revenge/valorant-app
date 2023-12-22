@@ -87,24 +87,11 @@ export const Seasons = (): React.ReactNode => {
                 <TouchableOpacity
                   className=" w-full p-5 rounded-lg "
                   onPress={() =>
-                    navigation.navigate('SeasonsDetails', {
+                    navigation.navigate('StandartDetails', {
                       standart: season.standart,
                     })
                   }>
                   <Text className="text-[55px] text-start font-valorant text-white">Standart</Text>
-                </TouchableOpacity>
-              </View>
-              <View className="rounded-b-lg mb-5 bg-[#ffffff18]  border-t-8  border-t-[#ffffff3f]   shadow-lg ">
-                <TouchableOpacity
-                  className=" w-full p-5 rounded-lg"
-                  onPress={() =>
-                    navigation.navigate('SeasonsDetails', {
-                      competitive: season.competitive,
-                    })
-                  }>
-                  <Text className="text-[55px] text-start font-valorant text-white">
-                    Competitive
-                  </Text>
                 </TouchableOpacity>
               </View>
             </SafeAreaView>
