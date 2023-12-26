@@ -26,8 +26,11 @@
     <img height='50px' width="60px" src="https://api.iconify.design/vscode-icons:file-type-light-expo.svg"/>
 <img height='50px'width="60px" src="https://api.iconify.design/devicon-plain:axios-wordmark.svg"/>
 <img height='50px' width="100px" src="https://api.iconify.design/logos:tailwindcss-icon.svg"/><img height='50px' width="60px" src="https://api.iconify.design/logos:zod.svg"/>
+</br>
 
-
+ 
+ </br>
+<a href="https://wakatime.com/badge/github/97revenge/valorant-app"><img src="https://wakatime.com/badge/github/97revenge/valorant-app.svg" alt="wakatime"></a>
 </div>
 
 -----
