@@ -70,12 +70,7 @@
     
     
     
-<div align='center'>
-    <h3 align='center'>Basic usage</h3>
 
- <video align="center" width="180px"   src="https://github.com/97revenge/thunder-organics/assets/80254945/4491bac4-cce1-472b-8baa-5666dd0c4288
-" controls>
-</video>
 
 
 
