@@ -3,29 +3,24 @@
 <h3><code>valorant-app</code> | React Native App on <a src="https://valorant-api">valorant-api</h3>
 
 
- <div align="center">
- <br/>
- <a href="https://www.behance.net/gallery/185555395/valorant-app-React-Native-Valorant-App?">
- <image  height="25px" src="https://api.iconify.design/logos:behance.svg"/>
- <br/><br/></a>
- </div>
+
 
 
 
 <div align='center' >
-<image src="https://github.com/97revenge/thunder-organics/assets/80254945/1d625c47-f111-4fa3-bb52-f6bf18684927" height="450px"/>
-<image src="https://github.com/97revenge/thunder-organics/assets/80254945/f1201a53-4d17-4d03-a5c1-3e5b4559e865" height="450px"/>
-<image src="https://github.com/97revenge/thunder-organics/assets/80254945/78c87792-9e00-4695-9549-86713b2d4a46" height="450px"/>
+
 <br/>
 <br/>
 </div>
 </div>
 <div align="center">
-     <img height='50px' width="60px" src="https://api.iconify.design/tabler:brand-react-native.svg"/>
-   <img height='50px' width="60px" src="https://api.iconify.design/devicon:typescript.svg"/>
-    <img height='50px' width="60px" src="https://api.iconify.design/vscode-icons:file-type-light-expo.svg"/>
-<img height='50px'width="60px" src="https://api.iconify.design/devicon-plain:axios-wordmark.svg"/>
-<img height='50px' width="100px" src="https://api.iconify.design/logos:tailwindcss-icon.svg"/><img height='50px' width="60px" src="https://api.iconify.design/logos:zod.svg"/>
+
+
+
+
+![Group 4](https://github.com/97revenge/valorant-app/assets/80254945/851d770a-f6a8-4e5b-ba30-b464da6d3602)
+
+
 </br>
 
  
